@@ -1,0 +1,311 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions name="InteroperadorAntService" targetNamespace="http://servicio.interoperadorws.interoperacion.dinardap.gob.ec/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://servicio.interoperadorws.interoperacion.dinardap.gob.ec/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://servicio.interoperadorws.interoperacion.dinardap.gob.ec/" xmlns:tns="http://servicio.interoperadorws.interoperacion.dinardap.gob.ec/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:complexType name="vehiculo">
+<xs:sequence>
+<xs:element minOccurs="0" name="codigoPaquete" type="xs:string"/>
+<xs:element minOccurs="0" name="tipoConsulta" type="xs:string"/>
+<xs:element minOccurs="0" name="valor" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="vehiculoResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:fichaGeneral"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="fichaGeneral">
+<xs:sequence>
+<xs:element minOccurs="0" name="codigoPaquete" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="instituciones" nillable="true" type="tns:institucion"/>
+<xs:element minOccurs="0" name="mensaje" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="institucion">
+<xs:sequence>
+<xs:element minOccurs="0" name="datosPrincipales" type="tns:datosPrincipales"/>
+<xs:element minOccurs="0" name="detalle" type="tns:detalle"/>
+<xs:element minOccurs="0" name="mensaje" type="xs:string"/>
+<xs:element minOccurs="0" name="nombre" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="datosPrincipales">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="registros" nillable="true" type="tns:registro"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="registro">
+<xs:sequence>
+<xs:element minOccurs="0" name="campo" type="xs:string"/>
+<xs:element minOccurs="0" name="codigo" type="xs:string"/>
+<xs:element minOccurs="0" name="valor" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="detalle">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="items" nillable="true" type="tns:item"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="item">
+<xs:sequence>
+<xs:element minOccurs="0" name="nombre" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="registros" nillable="true" type="tns:registro"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="infracciones">
+<xs:sequence>
+<xs:element minOccurs="0" name="codigoPaquete" type="xs:string"/>
+<xs:element minOccurs="0" name="tipoConsulta" type="xs:string"/>
+<xs:element minOccurs="0" name="valor" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="infraccionesResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:fichaGeneral"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="datosMatricula">
+<xs:sequence>
+<xs:element minOccurs="0" name="codigoPaquete" type="xs:string"/>
+<xs:element minOccurs="0" name="valorConsulta" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="datosMatriculaResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:fichaGeneral"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="vehiculoIdentificacion">
+<xs:sequence>
+<xs:element minOccurs="0" name="codigoPaquete" type="xs:string"/>
+<xs:element minOccurs="0" name="identificacion" type="xs:string"/>
+<xs:element minOccurs="0" name="tipoIdentificacion" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="vehiculoIdentificacionResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:fichaGeneral"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="licencia">
+<xs:sequence>
+<xs:element minOccurs="0" name="codigoPaquete" type="xs:string"/>
+<xs:element minOccurs="0" name="identificacion" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="licenciaResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:fichaGeneral"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="restricciones">
+<xs:sequence>
+<xs:element minOccurs="0" name="codigoPaquete" type="xs:string"/>
+<xs:element minOccurs="0" name="tipoConsulta" type="xs:string"/>
+<xs:element minOccurs="0" name="valor" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="restriccionesResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:fichaGeneral"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="historial">
+<xs:sequence>
+<xs:element minOccurs="0" name="codigoPaquete" type="xs:string"/>
+<xs:element minOccurs="0" name="tipoConsulta" type="xs:string"/>
+<xs:element minOccurs="0" name="valor" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="historialResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:fichaGeneral"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="vehiculo" nillable="true" type="tns:vehiculo"/>
+<xs:element name="vehiculoResponse" nillable="true" type="tns:vehiculoResponse"/>
+<xs:element name="infracciones" nillable="true" type="tns:infracciones"/>
+<xs:element name="infraccionesResponse" nillable="true" type="tns:infraccionesResponse"/>
+<xs:element name="datosMatricula" nillable="true" type="tns:datosMatricula"/>
+<xs:element name="datosMatriculaResponse" nillable="true" type="tns:datosMatriculaResponse"/>
+<xs:element name="vehiculoIdentificacion" nillable="true" type="tns:vehiculoIdentificacion"/>
+<xs:element name="vehiculoIdentificacionResponse" nillable="true" type="tns:vehiculoIdentificacionResponse"/>
+<xs:element name="licencia" nillable="true" type="tns:licencia"/>
+<xs:element name="licenciaResponse" nillable="true" type="tns:licenciaResponse"/>
+<xs:element name="restricciones" nillable="true" type="tns:restricciones"/>
+<xs:element name="restriccionesResponse" nillable="true" type="tns:restriccionesResponse"/>
+<xs:element name="historial" nillable="true" type="tns:historial"/>
+<xs:element name="historialResponse" nillable="true" type="tns:historialResponse"/>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="licenciaResponse">
+    <wsdl:part element="tns:licenciaResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="historialResponse">
+    <wsdl:part element="tns:historialResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="infraccionesResponse">
+    <wsdl:part element="tns:infraccionesResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="restricciones">
+    <wsdl:part element="tns:restricciones" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="datosMatricula">
+    <wsdl:part element="tns:datosMatricula" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="infracciones">
+    <wsdl:part element="tns:infracciones" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="vehiculoResponse">
+    <wsdl:part element="tns:vehiculoResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="licencia">
+    <wsdl:part element="tns:licencia" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="historial">
+    <wsdl:part element="tns:historial" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="vehiculoIdentificacion">
+    <wsdl:part element="tns:vehiculoIdentificacion" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="vehiculoIdentificacionResponse">
+    <wsdl:part element="tns:vehiculoIdentificacionResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="vehiculo">
+    <wsdl:part element="tns:vehiculo" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="datosMatriculaResponse">
+    <wsdl:part element="tns:datosMatriculaResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="restriccionesResponse">
+    <wsdl:part element="tns:restriccionesResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="InteroperadorAnt">
+    <wsdl:operation name="vehiculo">
+      <wsdl:input message="tns:vehiculo" name="vehiculo">
+    </wsdl:input>
+      <wsdl:output message="tns:vehiculoResponse" name="vehiculoResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="infracciones">
+      <wsdl:input message="tns:infracciones" name="infracciones">
+    </wsdl:input>
+      <wsdl:output message="tns:infraccionesResponse" name="infraccionesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="datosMatricula">
+      <wsdl:input message="tns:datosMatricula" name="datosMatricula">
+    </wsdl:input>
+      <wsdl:output message="tns:datosMatriculaResponse" name="datosMatriculaResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="vehiculoIdentificacion">
+      <wsdl:input message="tns:vehiculoIdentificacion" name="vehiculoIdentificacion">
+    </wsdl:input>
+      <wsdl:output message="tns:vehiculoIdentificacionResponse" name="vehiculoIdentificacionResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="licencia">
+      <wsdl:input message="tns:licencia" name="licencia">
+    </wsdl:input>
+      <wsdl:output message="tns:licenciaResponse" name="licenciaResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="restricciones">
+      <wsdl:input message="tns:restricciones" name="restricciones">
+    </wsdl:input>
+      <wsdl:output message="tns:restriccionesResponse" name="restriccionesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="historial">
+      <wsdl:input message="tns:historial" name="historial">
+    </wsdl:input>
+      <wsdl:output message="tns:historialResponse" name="historialResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="InteroperadorAntServiceSoapBinding" type="tns:InteroperadorAnt">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="vehiculo">
+      <soap:operation soapAction="vehiculo" style="document"/>
+      <wsdl:input name="vehiculo">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="vehiculoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="infracciones">
+      <soap:operation soapAction="infracciones" style="document"/>
+      <wsdl:input name="infracciones">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="infraccionesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="datosMatricula">
+      <soap:operation soapAction="datosMatricula" style="document"/>
+      <wsdl:input name="datosMatricula">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="datosMatriculaResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="vehiculoIdentificacion">
+      <soap:operation soapAction="vehiculoIdentificacion" style="document"/>
+      <wsdl:input name="vehiculoIdentificacion">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="vehiculoIdentificacionResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="licencia">
+      <soap:operation soapAction="licencia" style="document"/>
+      <wsdl:input name="licencia">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="licenciaResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="restricciones">
+      <soap:operation soapAction="restricciones" style="document"/>
+      <wsdl:input name="restricciones">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="restriccionesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="historial">
+      <soap:operation soapAction="historial" style="document"/>
+      <wsdl:input name="historial">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="historialResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="InteroperadorAntService">
+    <wsdl:port binding="tns:InteroperadorAntServiceSoapBinding" name="InteroperadorAntPort">
+      <soap:address location="http://interoperabilidad.dinardap.gob.ec:7979/interoperador-ant"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
